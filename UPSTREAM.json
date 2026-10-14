@@ -1,0 +1,612 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "name": "agent-skills",
+    "repository": "https://github.com/addyosmani/agent-skills",
+    "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+    "importedAt": "2026-10-14",
+    "license": "MIT",
+    "copyright": "Copyright (c) 2025 Addy Osmani"
+  },
+  "audit": {
+    "reviewedAt": "2026-10-14",
+    "trackedFileCount": 217,
+    "licenseNoticeFiles": [
+      "LICENSE"
+    ],
+    "methods": [
+      "Enumerated all git-tracked files, including dotfiles, modes and symlinks.",
+      "Scanned tracked text for license, copyright, SPDX, NOTICE and origin markers.",
+      "Reviewed explicit third-party adaptation in code-simplification before import.",
+      "Inspected Anthropic root and code-simplifier listings for LICENSE and NOTICE files.",
+      "Excluded other-host adapters, hooks, assets, evaluation fixtures and dependency manifests.",
+      "Reviewed all 17 tracked docs files for license, copyright, source/adaptation markers and linked resources before completing the documentation import."
+    ],
+    "findings": [
+      "Only LICENSE is a license/notice-named file in the upstream tracked tree.",
+      "code-simplification explicitly credits an adaptation of the Apache-2.0 Anthropic Code Simplifier plugin; carry that license conservatively for incorporated third-party expression.",
+      "No other separate license notices were found in the imported subset. External links and suggested dependencies are not redistributed.",
+      "The complete 17-file docs directory is preserved as unchanged upstream reference material; its host setup instructions do not register or promise Pi features."
+    ]
+  },
+  "imports": [
+    {
+      "sourcePath": "LICENSE",
+      "path": "vendor/agent-skills/LICENSE",
+      "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+      "gitBlob": "d67778ada6b9cda6227e9130da182c13e73c8b2e"
+    },
+    {
+      "sourcePath": "agents/code-reviewer.md",
+      "path": "vendor/agent-skills/agents/code-reviewer.md",
+      "sha256": "4efbd53e08e57291cc2869865be809897fbe598767600118ec687d00a557fff4",
+      "gitBlob": "ea267be01f2e16011d04b90dc234986384c4f7e0"
+    },
+    {
+      "sourcePath": "agents/security-auditor.md",
+      "path": "vendor/agent-skills/agents/security-auditor.md",
+      "sha256": "66a3f68f1c691b600ddb44e88afb138e239d0572df37be84e1f9a427c887dd0a",
+      "gitBlob": "efb1e4e51d12229e5d6792780f997467d4ea3697"
+    },
+    {
+      "sourcePath": "agents/test-engineer.md",
+      "path": "vendor/agent-skills/agents/test-engineer.md",
+      "sha256": "a7a0b33ec3294da8fb4ee02ed28c665056bafa48982930fe551dcfadda9117af",
+      "gitBlob": "d207e2f5dd355c1c8c29bc6948104560ec3ef199"
+    },
+    {
+      "sourcePath": "agents/web-performance-auditor.md",
+      "path": "vendor/agent-skills/agents/web-performance-auditor.md",
+      "sha256": "0928b1cf8103262a364bce0c1fc689a918852e2275441f1b2e687adfa1e607e9",
+      "gitBlob": "44bc45d807fa6aa59c001741dec499ddb27122c6"
+    },
+    {
+      "sourcePath": "docs/adoption-guide.md",
+      "path": "vendor/agent-skills/docs/adoption-guide.md",
+      "sha256": "e8cf338ae5762bf93bb48b04eac986bf7307cea702ff87180a0983b33473bcf5",
+      "gitBlob": "e636b824f97c964a0bac7ae3a5f5da036513e1f0"
+    },
+    {
+      "sourcePath": "docs/advanced-per-agent-configuration.md",
+      "path": "vendor/agent-skills/docs/advanced-per-agent-configuration.md",
+      "sha256": "93b2a53ca052b5e24b7382caf9438abdae7d511d7b16aedf71f35e36e9adc60d",
+      "gitBlob": "d06a87b7cec0c657ee321fbcd8d910d074ee5954"
+    },
+    {
+      "sourcePath": "docs/agents.md",
+      "path": "vendor/agent-skills/docs/agents.md",
+      "sha256": "ac1d7704dcd70b9e98e8109254ece554381c7c488e54471ff17a648e5bcb13d2",
+      "gitBlob": "e4ccea98e5d59b3a150c1defc9b2b179da14123b"
+    },
+    {
+      "sourcePath": "docs/antigravity-setup.md",
+      "path": "vendor/agent-skills/docs/antigravity-setup.md",
+      "sha256": "1a47959d542ec6008ef9f20bf20fdf8ac9c309157c9cc3bfd42f888b606af3ea",
+      "gitBlob": "ac0e46113cb049da5ced3bcdae3561c9d5280af4"
+    },
+    {
+      "sourcePath": "docs/codex-setup.md",
+      "path": "vendor/agent-skills/docs/codex-setup.md",
+      "sha256": "d6d491303d37020b51ddc0417fe3e7ea119518fa892deda07602d64f93d9fa8a",
+      "gitBlob": "25e25e0db60c0755260a1a73be058e453cc4c96c"
+    },
+    {
+      "sourcePath": "docs/commandcode-setup.md",
+      "path": "vendor/agent-skills/docs/commandcode-setup.md",
+      "sha256": "6305e672cd15c1dd709d7a2b307dca4bbf2704328654f8b3a5f37c495d3cf31c",
+      "gitBlob": "0150adc6e92f119e5101966a4784c0079560e4d1"
+    },
+    {
+      "sourcePath": "docs/comparison.md",
+      "path": "vendor/agent-skills/docs/comparison.md",
+      "sha256": "652e4df31f4bc1e1d456db768ee15c6cc5fdd6dee754d9dfccffe5ce1eac7194",
+      "gitBlob": "2c51daa6f47bb2896e91b4197279d44f8cd45f42"
+    },
+    {
+      "sourcePath": "docs/copilot-cli-setup.md",
+      "path": "vendor/agent-skills/docs/copilot-cli-setup.md",
+      "sha256": "5ecb11fa4f8b1d8bfd94f9f66f6e50037e8241fca34b3cbc598aee78f96762a9",
+      "gitBlob": "06e3f5264eafd6b19b02b454fb4f5140f1a11122"
+    },
+    {
+      "sourcePath": "docs/copilot-setup.md",
+      "path": "vendor/agent-skills/docs/copilot-setup.md",
+      "sha256": "46f1f46c4c1f4f656b1725271692e686e6f2e10ca977b526ea4f932497ecb209",
+      "gitBlob": "b33d111c222348bb4d70aba64a8987454089c7e9"
+    },
+    {
+      "sourcePath": "docs/cursor-setup.md",
+      "path": "vendor/agent-skills/docs/cursor-setup.md",
+      "sha256": "f775d97d834c1de09c2e83c011c1ff5b9fba0f9c38e03e188f5aff48ba1dada6",
+      "gitBlob": "1b3c24fe3da6efd5cfa0b6f7ae1fa4080b312ea8"
+    },
+    {
+      "sourcePath": "docs/developer-onboarding.md",
+      "path": "vendor/agent-skills/docs/developer-onboarding.md",
+      "sha256": "b2fe54233e9945cbaeabbcdd072cfb4ce06918eed0cdc09ea5ae44e190028872",
+      "gitBlob": "d96fb9cfe48c39a76473f941e3b3c706930131ab"
+    },
+    {
+      "sourcePath": "docs/gemini-cli-setup.md",
+      "path": "vendor/agent-skills/docs/gemini-cli-setup.md",
+      "sha256": "72fd36e321b76a6ed2799faba2357e0afc22349b07bbe91da4470808f1642409",
+      "gitBlob": "8b13aa6b40ec95a23cfe728ba8f42045680528c7"
+    },
+    {
+      "sourcePath": "docs/getting-started.md",
+      "path": "vendor/agent-skills/docs/getting-started.md",
+      "sha256": "eb8601e481a3dc237bf76e38521e47f3dfc950f153836754a23302abca64b989",
+      "gitBlob": "f09e0cf0632a5b2cb9e7eaa03694a866c92d52e5"
+    },
+    {
+      "sourcePath": "docs/opencode-setup.md",
+      "path": "vendor/agent-skills/docs/opencode-setup.md",
+      "sha256": "77a6bd91ef2837acb96feea4ae60f3bfea2c4155864c197394dd2166f49de864",
+      "gitBlob": "354097f8be0d5e3cf3b05fd8299ec4e35b99234a"
+    },
+    {
+      "sourcePath": "docs/other-hosts.md",
+      "path": "vendor/agent-skills/docs/other-hosts.md",
+      "sha256": "8269a198ac91a2a512e053066089a59613333101f835c6df259802b1683b41b2",
+      "gitBlob": "b7c1a5e868fc6f1bd6d7570b6573a9d48012676a"
+    },
+    {
+      "sourcePath": "docs/skill-anatomy.md",
+      "path": "vendor/agent-skills/docs/skill-anatomy.md",
+      "sha256": "5d2276c169c713e280bdbc4dcad41f20f4d5f7c5a8f09f9ee834eb1252a60df4",
+      "gitBlob": "04e493326aa5f7ea8b87ce5ca8de9925147a802b"
+    },
+    {
+      "sourcePath": "docs/windsurf-setup.md",
+      "path": "vendor/agent-skills/docs/windsurf-setup.md",
+      "sha256": "1410af016060047d1a265365f8d98aadd00a58bcfa2a048edec06d61d337cd97",
+      "gitBlob": "c640e48ed73082614b0b01785e7c8d425ce3e1d4"
+    },
+    {
+      "sourcePath": "references/accessibility-checklist.md",
+      "path": "vendor/agent-skills/references/accessibility-checklist.md",
+      "sha256": "61c759d94d52296231f5f310b92b401f56c44e4430dc3cc95ebac5d7b1d5ffac",
+      "gitBlob": "c8c61e5f3d5a010a0d0ecb918bfaffe6c76fca78"
+    },
+    {
+      "sourcePath": "references/definition-of-done.md",
+      "path": "vendor/agent-skills/references/definition-of-done.md",
+      "sha256": "d1c75d2ae65d2c7a9cd01f93fa8de63e00e75f2fe5d08be224d576157054dcee",
+      "gitBlob": "35e39f9e15f6dd0ff4725a6e5cbce7f2aa69064a"
+    },
+    {
+      "sourcePath": "references/observability-checklist.md",
+      "path": "vendor/agent-skills/references/observability-checklist.md",
+      "sha256": "25fcd0e854596a5ab6f11b002050d245bf78f5ae0fcbd1df699b89451ae0e1e8",
+      "gitBlob": "ad40d7aa3fca5d2091fa45be234c14aee22c3588"
+    },
+    {
+      "sourcePath": "references/orchestration-patterns.md",
+      "path": "vendor/agent-skills/references/orchestration-patterns.md",
+      "sha256": "61e543d86f19f86b83074f8c1c769455c7085a2c72dd47b1da21a8c63785be4a",
+      "gitBlob": "09cddd31d52a95be1d9bca814547d184b9945e44"
+    },
+    {
+      "sourcePath": "references/performance-checklist.md",
+      "path": "vendor/agent-skills/references/performance-checklist.md",
+      "sha256": "fffc38b8f3b328a973aab8b1a2efdd72b65710d8f4b57f28f8374ddae7f8a88b",
+      "gitBlob": "88b6f6a41be7561746c5580137a892583e5f0029"
+    },
+    {
+      "sourcePath": "references/security-checklist.md",
+      "path": "vendor/agent-skills/references/security-checklist.md",
+      "sha256": "37774056502fe8970dcd2fd27dca5fa31f2a55232649fc3056c89c3af7d62755",
+      "gitBlob": "fc5e29b92c183fa69e0952b61a99761dc48b4c0b"
+    },
+    {
+      "sourcePath": "references/testing-patterns.md",
+      "path": "vendor/agent-skills/references/testing-patterns.md",
+      "sha256": "f0bf05acd0edcadc27297ad5b74f104c8103ccfedba1a05cd6d6ae4af8364c56",
+      "gitBlob": "bc96e271ad241ca567f06d21c6ecc001455b80f1"
+    },
+    {
+      "sourcePath": "scripts/lib/skill-lint-test.js",
+      "path": "vendor/agent-skills/scripts/lib/skill-lint-test.js",
+      "sha256": "c0362672aef5d96493b4d70e0d23fc41d148bf4a624739579bb3345cdd6ea822",
+      "gitBlob": "bf9d30b0e2c909fed86ea5978409a4d0875721ec"
+    },
+    {
+      "sourcePath": "scripts/lib/skill-lint.js",
+      "path": "vendor/agent-skills/scripts/lib/skill-lint.js",
+      "sha256": "2fdf0516f80811b1b3a2de250cd4d7de8e02372a372f70548fe5009d1e67c2cc",
+      "gitBlob": "1cb18bf351c1deee7656157a1e777281e86fb561"
+    },
+    {
+      "sourcePath": "scripts/validate-reference-links-test.js",
+      "path": "vendor/agent-skills/scripts/validate-reference-links-test.js",
+      "sha256": "a07f9b523b9889f7c5a15e7a3ec3a8d23e004d1a710c559c2e3bb822c6fd918c",
+      "gitBlob": "891e472eb3a6e74d498b213a0798a94d6a8dcb5c"
+    },
+    {
+      "sourcePath": "scripts/validate-reference-links.js",
+      "path": "vendor/agent-skills/scripts/validate-reference-links.js",
+      "sha256": "9274ad46581afe7247dfceede2f1bc0a4d2f91bb2e85ec661d5a196efc8f4fef",
+      "gitBlob": "b659bcdc70cce1c41cd16a9118b42616a29d8288"
+    },
+    {
+      "sourcePath": "scripts/validate-skills.js",
+      "path": "vendor/agent-skills/scripts/validate-skills.js",
+      "sha256": "29c71e4004a379100b36bf5096bf2deac9d929940988d3c0c6c7a9e91f29d56b",
+      "gitBlob": "d1722a40deb35e60815f7969165681fdb416e37d"
+    },
+    {
+      "sourcePath": "skills/api-and-interface-design/SKILL.md",
+      "path": "vendor/agent-skills/skills/api-and-interface-design/SKILL.md",
+      "sha256": "e83d34f52ff12dd8a7c5134cd7e8140ea4541ec65e204f8a1e4cd366e30c4192",
+      "gitBlob": "3e2e37f8f4fba2c66f9f1599eaf01a55ae3f3e33"
+    },
+    {
+      "sourcePath": "skills/browser-testing-with-devtools/SKILL.md",
+      "path": "vendor/agent-skills/skills/browser-testing-with-devtools/SKILL.md",
+      "sha256": "4e3aacd6a380cd25bc6c2d67fdd1c926a9b22535b8a62109ecd33cefd909e3d9",
+      "gitBlob": "9864d2724e273e1164d62ab10b73590ae00fd6a8"
+    },
+    {
+      "sourcePath": "skills/ci-cd-and-automation/SKILL.md",
+      "path": "vendor/agent-skills/skills/ci-cd-and-automation/SKILL.md",
+      "sha256": "a6ed8ed56456b01ff8314c44eefc69897d9905ae4e06bb2b7036286efb79b5f0",
+      "gitBlob": "118456fcb10225c030769a4fee7815b9c536b0ce"
+    },
+    {
+      "sourcePath": "skills/code-review-and-quality/SKILL.md",
+      "path": "vendor/agent-skills/skills/code-review-and-quality/SKILL.md",
+      "sha256": "2db1e850379f255fd3091ef278cde24cd6c7d2ba23e360cc52ea522c40d4396e",
+      "gitBlob": "08209ff2208d2883d48d945f7754c428b77f8d87"
+    },
+    {
+      "sourcePath": "skills/code-simplification/SKILL.md",
+      "path": "vendor/agent-skills/skills/code-simplification/SKILL.md",
+      "sha256": "f0c5ed754057eb0c1e027e2587f59de816651feb5e837242296c43ea21cf621d",
+      "gitBlob": "239b2848489511de30d9e63b0bd183adc4b01347"
+    },
+    {
+      "sourcePath": "skills/constraint-driven-development/SKILL.md",
+      "path": "vendor/agent-skills/skills/constraint-driven-development/SKILL.md",
+      "sha256": "06479d4305f286d23cfb99f5dc85695896785269664e1f6a8d800e3b71e70c10",
+      "gitBlob": "3028719c0bad95b3e439024b2f52255c0c9f1ffe"
+    },
+    {
+      "sourcePath": "skills/constraint-driven-development/references/floor-guard.md",
+      "path": "vendor/agent-skills/skills/constraint-driven-development/references/floor-guard.md",
+      "sha256": "59715dc6c3c6c36ec9177f9ced65c379e80a4539b36115456666bfabc43a6a9c",
+      "gitBlob": "0fa8a6946149b9f31b79f09f7cd1be6b3ac9f9e7"
+    },
+    {
+      "sourcePath": "skills/context-engineering/SKILL.md",
+      "path": "vendor/agent-skills/skills/context-engineering/SKILL.md",
+      "sha256": "8b736cb9e55b82b265ab6ff78349c0e826e8a6df550deddf665b7fb3ff858b63",
+      "gitBlob": "fb8bb5f85128302b231d301c1201da1e223f6869"
+    },
+    {
+      "sourcePath": "skills/debugging-and-error-recovery/SKILL.md",
+      "path": "vendor/agent-skills/skills/debugging-and-error-recovery/SKILL.md",
+      "sha256": "21f3960f5d7ae2cc95c40896545004dbbcbbd752ea65fc2d53962554d4174220",
+      "gitBlob": "356da20365a7cd6825b4ffad14be39280c92cdfc"
+    },
+    {
+      "sourcePath": "skills/deprecation-and-migration/SKILL.md",
+      "path": "vendor/agent-skills/skills/deprecation-and-migration/SKILL.md",
+      "sha256": "6a624f942e09c69863a4219b9bd5d56975026b67b0c70bc83385ffd2120b6142",
+      "gitBlob": "7bf884ca5743d63be448725f88041dde8a10cd5d"
+    },
+    {
+      "sourcePath": "skills/documentation-and-adrs/SKILL.md",
+      "path": "vendor/agent-skills/skills/documentation-and-adrs/SKILL.md",
+      "sha256": "b60d503925bbaacee7fd63935db70b9ced5b2514ff5a56a672130e01b9690bc5",
+      "gitBlob": "ecc28cef82b65be804329b242f6399bce46987fd"
+    },
+    {
+      "sourcePath": "skills/doubt-driven-development/SKILL.md",
+      "path": "vendor/agent-skills/skills/doubt-driven-development/SKILL.md",
+      "sha256": "6fa1fcd8420c28daf7e53c5b08b0f20b907911efd2a6d9bce0b9740da20a4008",
+      "gitBlob": "472c35ab9f32e8ec8b592e5cc7d228ad8cdce278"
+    },
+    {
+      "sourcePath": "skills/frontend-ui-engineering/SKILL.md",
+      "path": "vendor/agent-skills/skills/frontend-ui-engineering/SKILL.md",
+      "sha256": "29a3e53d57c0a128831a20730ae874a8c4fda40c001fcdc15f8e9ad4b5f72f1b",
+      "gitBlob": "3c77256874f2990612d0c980fa9b73cc3116152c"
+    },
+    {
+      "sourcePath": "skills/git-workflow-and-versioning/SKILL.md",
+      "path": "vendor/agent-skills/skills/git-workflow-and-versioning/SKILL.md",
+      "sha256": "b7465d187935c52546d39fdc7bd6ac36d94eda25a9500ef8c18b767d2eb116ea",
+      "gitBlob": "0e03a2323ed3f0131626660c3142f69c4a6f8830"
+    },
+    {
+      "sourcePath": "skills/idea-refine/SKILL.md",
+      "path": "vendor/agent-skills/skills/idea-refine/SKILL.md",
+      "sha256": "21ef828e3a2144245b67f840cc3805f761e98c9acce9a96670b7cd7441353463",
+      "gitBlob": "c35e693a114ba6b5de18ec58fa119992800915e2"
+    },
+    {
+      "sourcePath": "skills/idea-refine/examples.md",
+      "path": "vendor/agent-skills/skills/idea-refine/examples.md",
+      "sha256": "563204bfbf2f80a444151695205af4cb759e722b3d1e5460e08f278a69c89ba1",
+      "gitBlob": "a797d22c69cb248d718713633f42d4ee7a4d01d7"
+    },
+    {
+      "sourcePath": "skills/idea-refine/frameworks.md",
+      "path": "vendor/agent-skills/skills/idea-refine/frameworks.md",
+      "sha256": "161ebc18fdf2d996bc62a87a2d747cf1bf53548354f8925de25c732c27f00309",
+      "gitBlob": "0e7fc8fe203bd6aabfba0f79cb6fa98c76d92e28"
+    },
+    {
+      "sourcePath": "skills/idea-refine/refinement-criteria.md",
+      "path": "vendor/agent-skills/skills/idea-refine/refinement-criteria.md",
+      "sha256": "1ca2973a4d01b5cb37ab7ddb2eff77fa4e792634a33d0ce44961c068fc88d51a",
+      "gitBlob": "53e79c725b7aa0a4a39389056bd71b1689aa8740"
+    },
+    {
+      "sourcePath": "skills/idea-refine/scripts/idea-refine.sh",
+      "path": "vendor/agent-skills/skills/idea-refine/scripts/idea-refine.sh",
+      "sha256": "f02a52408a4218047c032d221483abfbb48d11f090bb4915965c7419bf2e0e47",
+      "gitBlob": "a53cb5a9dc00252003a04d485132d58a5260e9b6"
+    },
+    {
+      "sourcePath": "skills/incremental-implementation/SKILL.md",
+      "path": "vendor/agent-skills/skills/incremental-implementation/SKILL.md",
+      "sha256": "df66536610071727feae1ca95f3c391c248ad828041750ccd3699cce763aa00b",
+      "gitBlob": "9c4f49bc841adb3c0f98baaa9eabd435a5b64ef9"
+    },
+    {
+      "sourcePath": "skills/interview-me/SKILL.md",
+      "path": "vendor/agent-skills/skills/interview-me/SKILL.md",
+      "sha256": "ace4b675999bb504593d572e0f73f3d7e803ad6fddf318445598c82c11939db2",
+      "gitBlob": "200f9186ffa234708aa5deec1946c6dfcb7a7335"
+    },
+    {
+      "sourcePath": "skills/observability-and-instrumentation/SKILL.md",
+      "path": "vendor/agent-skills/skills/observability-and-instrumentation/SKILL.md",
+      "sha256": "e7fcb0820306d46268de9594d676ad98e35040858926c412b7000faa52a61f87",
+      "gitBlob": "84d9cb373467fe0e15236e190833ecc90f840c38"
+    },
+    {
+      "sourcePath": "skills/performance-optimization/SKILL.md",
+      "path": "vendor/agent-skills/skills/performance-optimization/SKILL.md",
+      "sha256": "bd36a30e55a5f84329a6977eba5e1ab7654146e71eaba88e34337d4ee020460f",
+      "gitBlob": "ff57eab055e7df4994aa9dcdcc3a6ff1d30411e0"
+    },
+    {
+      "sourcePath": "skills/performance-optimization/references/optimization-patterns.md",
+      "path": "vendor/agent-skills/skills/performance-optimization/references/optimization-patterns.md",
+      "sha256": "fbf724076ffb8ac1a28e1a2773c0b550f5361090024b2dd32e5a682c69b7945f",
+      "gitBlob": "63e27bcc7a051c3dc23c164f146f374e119874cc"
+    },
+    {
+      "sourcePath": "skills/planning-and-task-breakdown/SKILL.md",
+      "path": "vendor/agent-skills/skills/planning-and-task-breakdown/SKILL.md",
+      "sha256": "ed0f90cc5951ddd4bcab7f871f64efec93a49af9279ef93bc470da77ad8da3f7",
+      "gitBlob": "296249b64334bcfd1aeaefd27b9e3e5494e38ec0"
+    },
+    {
+      "sourcePath": "skills/security-and-hardening/SKILL.md",
+      "path": "vendor/agent-skills/skills/security-and-hardening/SKILL.md",
+      "sha256": "2e3fc60eed5aba97fe416f3f3c9317fdb014a682925ec70a733c3ff99e4b9858",
+      "gitBlob": "e80e1e9a4f5b2989308c376d4ea0d333fe2c26ef"
+    },
+    {
+      "sourcePath": "skills/security-and-hardening/references/hardening-patterns.md",
+      "path": "vendor/agent-skills/skills/security-and-hardening/references/hardening-patterns.md",
+      "sha256": "2e1b93a502b4cdb0258404441f3aab029b0cce4003fbbcc61af9a2de18bab9ab",
+      "gitBlob": "e5fba73c9fc029444d3c099d0a51538e90ed97c2"
+    },
+    {
+      "sourcePath": "skills/shipping-and-launch/SKILL.md",
+      "path": "vendor/agent-skills/skills/shipping-and-launch/SKILL.md",
+      "sha256": "726f3e546369db289160b8d42195590f00b6432887e17bf19070dcc9a347fe39",
+      "gitBlob": "f94bb48702bd250b7ad18c264a46d77b46ea115b"
+    },
+    {
+      "sourcePath": "skills/source-driven-development/SKILL.md",
+      "path": "vendor/agent-skills/skills/source-driven-development/SKILL.md",
+      "sha256": "c59faf851377f0eeda45306398d16eb96d77ab1c2fd3e1a7fb58e9a0af33c1e9",
+      "gitBlob": "2704f0e130bc4659951aa552373914b2d63d18c9"
+    },
+    {
+      "sourcePath": "skills/spec-driven-development/SKILL.md",
+      "path": "vendor/agent-skills/skills/spec-driven-development/SKILL.md",
+      "sha256": "c4b97ce3d7f24be0e67fd612c7595f65504872e3a9f8d338d098b2363fdb66ef",
+      "gitBlob": "f54426bec00bcda5f700ab3368eed7203306830f"
+    },
+    {
+      "sourcePath": "skills/test-driven-development/SKILL.md",
+      "path": "vendor/agent-skills/skills/test-driven-development/SKILL.md",
+      "sha256": "a3aa6ba95638497025577469eda10ed17918698209615aeafbc26f131bf2469d",
+      "gitBlob": "2f9c4bad747df3c88f3cd443b4990ab12d77b7d0"
+    },
+    {
+      "sourcePath": "skills/using-agent-skills/SKILL.md",
+      "path": "vendor/agent-skills/skills/using-agent-skills/SKILL.md",
+      "sha256": "30787ef2c77bf1a4729fffed0f6523ba6fcbe81bdc436b36371b78c21394d3c3",
+      "gitBlob": "d56ac03ab057036c1bdcc9127c88952758ee2f0d"
+    },
+    {
+      "sourcePath": "LICENSE",
+      "path": "LICENSE",
+      "sha256": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7",
+      "gitBlob": "d67778ada6b9cda6227e9130da182c13e73c8b2e"
+    }
+  ],
+  "thirdParty": [
+    {
+      "name": "Anthropic Code Simplifier",
+      "repository": "https://github.com/anthropics/claude-plugins-official",
+      "commit": "8bd00f08f0b04705e610cf132fbe2cf5ec44cfe3",
+      "sourcePath": "plugins/code-simplifier/agents/code-simplifier.md",
+      "reviewedSourceSha256": "2a51e8d210580d9f66ac2ed1226c41f9374565fc275da30d7bb95f65c2cc87bb",
+      "license": "Apache-2.0",
+      "scope": [
+        "vendor/agent-skills/skills/code-simplification/SKILL.md"
+      ],
+      "noticeReview": "No NOTICE file present in the repository root or code-simplifier plugin directory at the reviewed revision; the original inspiration/adaptation credit is preserved in the imported skill.",
+      "files": [
+        {
+          "sourcePath": "plugins/code-simplifier/LICENSE",
+          "path": "LICENSES/Apache-2.0-code-simplifier.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "gitBlob": "d645695673349e3947e8e5ae42332d0ac3164cd7"
+        }
+      ]
+    }
+  ],
+  "excludedUpstreamPaths": [
+    ".agents/plugins/marketplace.json",
+    ".claude-plugin/marketplace.json",
+    ".claude-plugin/plugin.json",
+    ".claude/commands/build.md",
+    ".claude/commands/code-simplify.md",
+    ".claude/commands/constraints.md",
+    ".claude/commands/plan.md",
+    ".claude/commands/review.md",
+    ".claude/commands/ship.md",
+    ".claude/commands/spec.md",
+    ".claude/commands/test.md",
+    ".claude/commands/webperf.md",
+    ".claude/rules/skills-contributing.md",
+    ".codex-plugin/plugin.json",
+    ".gemini/commands/build.toml",
+    ".gemini/commands/code-simplify.toml",
+    ".gemini/commands/constraints.toml",
+    ".gemini/commands/planning.toml",
+    ".gemini/commands/review.toml",
+    ".gemini/commands/ship.toml",
+    ".gemini/commands/spec.toml",
+    ".gemini/commands/test.toml",
+    ".gemini/commands/webperf.toml",
+    ".gitattributes",
+    ".github/ISSUE_TEMPLATE/skill-gap.yml",
+    ".github/workflows/test-plugin-install.yml",
+    ".gitignore",
+    ".opencode/skills",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "CONTRIBUTING.md",
+    "README.md",
+    "commands/build.toml",
+    "commands/code-simplify.toml",
+    "commands/constraints.toml",
+    "commands/planning.toml",
+    "commands/review.toml",
+    "commands/ship.toml",
+    "commands/spec.toml",
+    "commands/test.toml",
+    "commands/webperf.toml",
+    "evals/README.md",
+    "evals/cases/api-and-interface-design.json",
+    "evals/cases/browser-testing-with-devtools.json",
+    "evals/cases/ci-cd-and-automation.json",
+    "evals/cases/code-review-and-quality.json",
+    "evals/cases/code-simplification.json",
+    "evals/cases/constraint-driven-development.json",
+    "evals/cases/context-engineering.json",
+    "evals/cases/debugging-and-error-recovery.json",
+    "evals/cases/deprecation-and-migration.json",
+    "evals/cases/documentation-and-adrs.json",
+    "evals/cases/doubt-driven-development.json",
+    "evals/cases/frontend-ui-engineering.json",
+    "evals/cases/git-workflow-and-versioning.json",
+    "evals/cases/idea-refine.json",
+    "evals/cases/incremental-implementation.json",
+    "evals/cases/interview-me.json",
+    "evals/cases/observability-and-instrumentation.json",
+    "evals/cases/performance-optimization.json",
+    "evals/cases/planning-and-task-breakdown.json",
+    "evals/cases/security-and-hardening.json",
+    "evals/cases/shipping-and-launch.json",
+    "evals/cases/source-driven-development.json",
+    "evals/cases/spec-driven-development.json",
+    "evals/cases/test-driven-development.json",
+    "evals/cases/using-agent-skills.json",
+    "evals/fixtures/api-and-interface-design/service-brief.md",
+    "evals/fixtures/browser-testing-with-devtools/README.md",
+    "evals/fixtures/browser-testing-with-devtools/index.html",
+    "evals/fixtures/browser-testing-with-devtools/server.js",
+    "evals/fixtures/ci-cd-and-automation/package.json",
+    "evals/fixtures/ci-cd-and-automation/src/slug.js",
+    "evals/fixtures/ci-cd-and-automation/test/slug.test.js",
+    "evals/fixtures/code-review-and-quality/user-search.diff",
+    "evals/fixtures/code-simplification/config-parser.js",
+    "evals/fixtures/code-simplification/config-parser.test.js",
+    "evals/fixtures/context-engineering/context-audit.md",
+    "evals/fixtures/debugging-and-error-recovery/pagination.js",
+    "evals/fixtures/debugging-and-error-recovery/pagination.test.js",
+    "evals/fixtures/debugging-and-error-recovery/time-pressure.md",
+    "evals/fixtures/deprecation-and-migration/api-inventory.md",
+    "evals/fixtures/documentation-and-adrs/decision-context.md",
+    "evals/fixtures/documentation-and-adrs/prose-review/README.md",
+    "evals/fixtures/documentation-and-adrs/prose-review/queue.js",
+    "evals/fixtures/doubt-driven-development/migration-plan.md",
+    "evals/fixtures/frontend-ui-engineering/Button.tsx",
+    "evals/fixtures/frontend-ui-engineering/design-system.md",
+    "evals/fixtures/git-workflow-and-versioning/.eval/working-tree.patch",
+    "evals/fixtures/git-workflow-and-versioning/app.js",
+    "evals/fixtures/git-workflow-and-versioning/app.test.js",
+    "evals/fixtures/incremental-implementation-pressure/draft-export.js",
+    "evals/fixtures/incremental-implementation-pressure/scenario.md",
+    "evals/fixtures/incremental-implementation/reports.js",
+    "evals/fixtures/incremental-implementation/reports.test.js",
+    "evals/fixtures/incremental-implementation/tasks/plan.md",
+    "evals/fixtures/observability-and-instrumentation/operations.md",
+    "evals/fixtures/observability-and-instrumentation/payment-retry.js",
+    "evals/fixtures/performance-optimization/benchmark.js",
+    "evals/fixtures/performance-optimization/products.js",
+    "evals/fixtures/planning-and-task-breakdown/notifications-spec.md",
+    "evals/fixtures/security-and-hardening/webhook.js",
+    "evals/fixtures/security-and-hardening/webhook.test.js",
+    "evals/fixtures/shipping-and-launch/authority-pressure.md",
+    "evals/fixtures/shipping-and-launch/launch-status.md",
+    "evals/fixtures/source-driven-development/framework-task.md",
+    "evals/fixtures/spec-driven-development-decomposition/portal-brief.md",
+    "evals/fixtures/spec-driven-development/billing-brief.md",
+    "evals/fixtures/test-driven-development-ecosystem/README.md",
+    "evals/fixtures/test-driven-development-ecosystem/ledger.py",
+    "evals/fixtures/test-driven-development-ecosystem/test_ledger.py",
+    "evals/fixtures/test-driven-development/BUG.md",
+    "evals/fixtures/test-driven-development/README.md",
+    "evals/fixtures/test-driven-development/package.json",
+    "evals/fixtures/test-driven-development/src/split.js",
+    "evals/fixtures/test-driven-development/test/split.test.js",
+    "evals/fixtures/using-agent-skills/incident.md",
+    "evals/plugin/code-review-fires/graders/off-by-one.md",
+    "evals/plugin/code-review-fires/graders/severity-labels.md",
+    "evals/plugin/code-review-fires/graders/skill-fired.md",
+    "evals/plugin/code-review-fires/prompt.md",
+    "evals/plugin/code-review-stays-quiet-on-commit-message/graders/not-fired.md",
+    "evals/plugin/code-review-stays-quiet-on-commit-message/prompt.md",
+    "evals/plugin/code-review-stays-quiet/graders/not-fired.md",
+    "evals/plugin/code-review-stays-quiet/graders/tdd-fired.md",
+    "evals/plugin/code-review-stays-quiet/prompt.md",
+    "evals/plugin/tdd-fires-on-pasted-bug/graders/failing-test-first.md",
+    "evals/plugin/tdd-fires-on-pasted-bug/graders/skill-fired.md",
+    "evals/plugin/tdd-fires-on-pasted-bug/prompt.md",
+    "evals/plugin/tdd-stays-quiet-on-debug/graders/not-fired.md",
+    "evals/plugin/tdd-stays-quiet-on-debug/prompt.md",
+    "evals/skill-impact.md",
+    "hooks/SDD-CACHE.md",
+    "hooks/SIMPLIFY-IGNORE.md",
+    "hooks/sdd-cache-post.sh",
+    "hooks/sdd-cache-pre.sh",
+    "hooks/sdd-cache-test.sh",
+    "hooks/session-start-test.sh",
+    "hooks/session-start.sh",
+    "hooks/simplify-ignore-test.sh",
+    "hooks/simplify-ignore.sh",
+    "plugin.json",
+    "scripts/floor-guard-reference-test.js",
+    "scripts/run-evals-test.js",
+    "scripts/run-evals.js",
+    "scripts/validate-artifact-paths-test.js",
+    "scripts/validate-artifact-paths.js",
+    "scripts/validate-commands-test.js",
+    "scripts/validate-commands.js",
+    "scripts/validate-versions-test.js",
+    "scripts/validate-versions.js"
+  ],
+  "modifications": []
+}

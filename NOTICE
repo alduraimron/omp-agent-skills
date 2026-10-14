@@ -1,0 +1,29 @@
+pi-agent-skills - origin and attribution notice
+
+This is an independently maintained project based on agent-skills:
+https://github.com/addyosmani/agent-skills
+Upstream revision: aeac41d4d005999432bb7312f7ff06383a91d59d
+
+Copyright (c) 2025 Addy Osmani
+The complete upstream MIT license is preserved verbatim in LICENSE and
+vendor/agent-skills/LICENSE. Reused files under vendor/agent-skills retain
+their original content and attribution. The upstream project credits Addy
+Osmani as creator and Federico Bartoli and Joan León as collaborators.
+Credit for upstream work remains with its authors and contributors.
+
+The imported code-simplification skill explicitly credits inspiration and
+adaptation from Anthropic's Claude Code Simplifier plugin:
+https://github.com/anthropics/claude-plugins-official/tree/8bd00f08f0b04705e610cf132fbe2cf5ec44cfe3/plugins/code-simplifier
+That plugin has a separate Apache License, Version 2.0. Its full license is
+preserved in LICENSES/Apache-2.0-code-simplifier.txt for any incorporated
+third-party expression. The plugin itself is not otherwise vendored. The
+original skill's inspiration/adaptation notice has not been removed.
+
+New Pi integration, prompt templates, validation, tests, CI and independent
+project documentation are pi-agent-skills contributions, licensed under
+LICENSES/MIT-pi-agent-skills.txt. Those contributions are not attributed to
+the upstream authors. Significant changes are recorded in MODIFICATIONS.md.
+
+No affiliation, sponsorship or endorsement by the original authors,
+Anthropic or the Pi maintainers is implied. This notice describes origin
+and license scope; it does not replace or alter any license terms.

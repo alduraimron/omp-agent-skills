@@ -1,0 +1,46 @@
+{
+  "name": "pi-agent-skills",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Independently maintained engineering workflow skills and prompt templates for Pi, based on agent-skills.",
+  "license": "(MIT AND Apache-2.0)",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/alduraimron/pi-agent-skills.git"
+  },
+  "homepage": "https://github.com/alduraimron/pi-agent-skills#readme",
+  "bugs": {
+    "url": "https://github.com/alduraimron/pi-agent-skills/issues"
+  },
+  "keywords": ["pi-package", "agent-skills", "engineering", "workflows"],
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "files": [
+    "README.md",
+    "LICENSE",
+    "LICENSES/",
+    "NOTICE",
+    "THIRD_PARTY_NOTICES.md",
+    "UPSTREAM.json",
+    "MODIFICATIONS.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "MAINTENANCE.md",
+    "docs/",
+    "skills/",
+    "prompts/",
+    "scripts/",
+    "test/",
+    "vendor/"
+  ],
+  "pi": {
+    "skills": ["./skills", "./vendor/agent-skills/skills"],
+    "prompts": ["./prompts"]
+  },
+  "scripts": {
+    "check": "node scripts/check-project.mjs && node vendor/agent-skills/scripts/validate-skills.js && node vendor/agent-skills/scripts/validate-reference-links.js",
+    "test": "node --test test/*.test.mjs vendor/agent-skills/scripts/lib/skill-lint-test.js vendor/agent-skills/scripts/validate-reference-links-test.js",
+    "prepack": "npm run check && npm test"
+  }
+}

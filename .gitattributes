@@ -1,0 +1,5 @@
+# Do not rewrite imported bytes or legal texts during checkout or packaging.
+vendor/** -text
+LICENSE -text
+LICENSES/** -text
+UPSTREAM.json -text
