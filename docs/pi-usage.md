@@ -8,7 +8,7 @@ Pi reads the explicit `pi.skills` and `pi.prompts` entries in `package.json`. Th
 
 ### Git installation
 
-After the first approved push has populated the independent GitHub repository:
+Install from the independent GitHub repository over SSH:
 
 ```sh
 pi install git:git@github.com:alduraimron/pi-agent-skills.git

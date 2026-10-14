@@ -38,6 +38,15 @@ No imported source file's content has been modified in this initial version. `UP
 - Prepared a new downstream initial commit and configured the local `origin` as `git@github.com:alduraimron/pi-agent-skills.git`. No upstream Git history was imported. No push, npm publication or release tag was performed during this preparation.
 - Existing skills, prompts, imported content, license/copyright notices and baseline hashes are unchanged. Slaver integration remains deferred.
 
+## 2026-10-14 - README onboarding and complete catalog (unreleased)
+
+- Rewrote the independently authored `README.md` as a complete project guide with a contents index, skill/prompt/persona mental model, installation management, a beginner walkthrough and Define -> Plan -> Build -> Verify -> Review -> Ship stages.
+- Documented all nine actual prompt commands and their loaded workflows, scope and approval boundaries. Linked all 26 shipped skills with purpose and usage guidance, explicitly distinguishing the 25 upstream workflows from the new Pi integration skill.
+- Added links to the four reference personas and seven shared checklists, common task recipes, default spec/plan/task artifacts, session-recovery prompts and troubleshooting. Personas, browser tooling, hooks, autonomous builds and deferred Slaver integration are not represented as built-in runtime features.
+- Added README regression checks for exact skill/command catalog coverage, workflow/approval/artifact guidance and local documentation links. Updated the Git-install test to verify SSH requirements rather than a stale first-push message.
+- Removed the outdated first-push prerequisite from `docs/pi-usage.md` and updated the current distribution wording in `CHANGELOG.md`, without rewriting the earlier historical preparation records.
+- Imported files, source hashes, required copyright/license notices, package resource paths and runtime behavior are unchanged. This documentation change does not add commands, modify installed Pi settings, authorize another push or publish to npm.
+
 ## Future entries
 
 For every significant change, record the date/release, affected paths, behavior change and reason. For imported-file edits, retain the original hashes in `UPSTREAM.json`, record the current hash and a reviewable explanation in its `modifications` list, and add a prominent change notice without deleting earlier notices. Never silently update baseline hashes to disguise downstream edits.

@@ -78,7 +78,7 @@ test('Git install guidance and support links identify the independent repository
   const usage = fs.readFileSync(path.join(root, 'docs/pi-usage.md'), 'utf8');
   for (const content of [readme, usage]) {
     assert.ok(content.includes(`pi install ${source}`));
-    assert.match(content, /After the first approved push/);
+    assert.match(content, /\bGit\b.*\bSSH\b/);
   }
   assert.match(readme, /private: true/);
   assert.match(readme, /does not prevent Git installation/);
@@ -97,6 +97,45 @@ test('origin and non-endorsement are explicit in the distributed documentation',
   assert.match(notice, /Anthropic/);
   assert.match(notice, /New Pi integration/);
   assert.match(notice, new RegExp(provenance.source.commit));
+});
+
+test('README catalogs every shipped skill and lifecycle command', () => {
+  const readme = fs.readFileSync(path.join(root, 'README.md'), 'utf8');
+  const expectedSkills = manifest.pi.skills.flatMap((base) =>
+    fs.readdirSync(path.resolve(root, base), { withFileTypes: true })
+      .filter((entry) => entry.isDirectory() && fs.existsSync(path.resolve(root, base, entry.name, 'SKILL.md')))
+      .map((entry) => path.posix.join(base, entry.name, 'SKILL.md')));
+  const documentedSkills = new Set([...readme.matchAll(/\[[^\]]+\]\(([^)\s]+\/SKILL\.md)\)/g)].map((match) => match[1]));
+  assert.equal(expectedSkills.length, 26);
+  assert.deepEqual([...documentedSkills].sort(), expectedSkills.sort());
+  const expectedCommands = fs.readdirSync(path.join(root, 'prompts'))
+    .filter((name) => name.endsWith('.md')).map((name) => name.slice(0, -3));
+  const documentedCommands = new Set([...readme.matchAll(/^\| `\/(pi-[a-z-]+)` \|/gm)].map((match) => match[1]));
+  assert.deepEqual([...documentedCommands].sort(), expectedCommands.sort());
+});
+
+test('README explains approval gates, workflow artifacts and session recovery', () => {
+  const readme = fs.readFileSync(path.join(root, 'README.md'), 'utf8');
+  assert.match(readme, /^## Workflow stages$/m);
+  for (const phase of ['Define', 'Plan', 'Build', 'Verify', 'Review', 'Ship']) {
+    assert.ok(readme.includes(`| ${phase} |`), `Missing workflow stage: ${phase}`);
+  }
+  for (const artifact of ['SPEC.md', 'tasks/plan.md', 'tasks/todo.md']) {
+    assert.ok(readme.includes(artifact), `Missing default workflow artifact: ${artifact}`);
+  }
+  assert.match(readme, /^## If you forget where you stopped$/m);
+  assert.ok(readme.includes('not blanket approval'));
+  assert.ok(readme.includes('does not authorize deployment'));
+});
+
+test('README relative documentation links resolve in the package checkout', () => {
+  const readme = fs.readFileSync(path.join(root, 'README.md'), 'utf8');
+  for (const match of readme.matchAll(/\[[^\]]+\]\(([^)\s]+)\)/g)) {
+    const target = match[1];
+    if (target.startsWith('#') || /^[a-z][a-z0-9+.-]*:/i.test(target)) continue;
+    const relative = target.split('#')[0];
+    assert.ok(fs.existsSync(path.resolve(root, relative)), `Broken README link: ${target}`);
+  }
 });
 
 test('the npm distribution retains every imported file and required notice', { timeout: 60_000 }, () => {
