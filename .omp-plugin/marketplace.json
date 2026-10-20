@@ -1,0 +1,32 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "omp-agent-skills-marketplace",
+  "owner": {
+    "name": "Aldura Armanu Shaufa Imron"
+  },
+  "metadata": {
+    "description": "Engineering workflow skills and commands for omp",
+    "version": "0.2.0"
+  },
+  "plugins": [
+    {
+      "name": "omp",
+      "description": "Engineering workflow skills and lifecycle commands for omp, based on Addy Osmani agent-skills.",
+      "source": "./",
+      "version": "0.2.0",
+      "author": {
+        "name": "Aldura Armanu Shaufa Imron"
+      },
+      "homepage": "https://github.com/alduraimron/omp-agent-skills",
+      "repository": "https://github.com/alduraimron/omp-agent-skills",
+      "license": "MIT AND Apache-2.0",
+      "category": "development",
+      "keywords": [
+        "omp",
+        "skills",
+        "engineering",
+        "workflow"
+      ]
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 MIT License
 
-Copyright (c) 2026 pi-agent-skills contributors
+Copyright (c) 2026 omp-agent-skills contributors
 
-This notice applies only to original pi-agent-skills contributions. It does
+This notice applies only to original omp-agent-skills contributions. It does
 not replace the copyright notices or license terms of reused upstream or
 third-party material. See LICENSE, NOTICE and THIRD_PARTY_NOTICES.md.
 

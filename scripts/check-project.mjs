@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Original pi-agent-skills contribution. See LICENSES/MIT-pi-agent-skills.txt.
+// Original omp-agent-skills contribution. See LICENSES/MIT-omp-agent-skills.txt.
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import { createRequire } from 'node:module';
@@ -81,7 +81,7 @@ export function verifyProvenance(root, manifest) {
       if (sha256(bytes) !== (modification?.sha256 || item.sha256)) {
         errors.push(`SHA-256 mismatch; record and review downstream changes: ${item.path}`);
       }
-      if (modification && !bytes.toString('utf8').includes('Modified by pi-agent-skills')) {
+      if (modification && !bytes.toString('utf8').includes('Modified by omp-agent-skills')) {
         errors.push(`Modified file lacks a prominent change notice: ${item.path}`);
       }
     } catch (error) {
@@ -115,40 +115,68 @@ export function validateProject(root) {
   // Do not execute even the reviewed linter if its imported bytes have drifted.
   if (errors.length) return errors;
   const manifest = JSON.parse(read('package.json'));
-  if (manifest.name !== 'pi-agent-skills') errors.push('The independent package name must be pi-agent-skills.');
+  const plugin = JSON.parse(read('.omp-plugin/plugin.json'));
+  const claudePlugin = JSON.parse(read('.claude-plugin/plugin.json'));
+  const marketplace = JSON.parse(read('.omp-plugin/marketplace.json'));
+  if (manifest.name !== 'omp-agent-skills') errors.push('The package name must be omp-agent-skills.');
+  if (manifest.private !== true) errors.push('The package must remain private to guard npm publication.');
   if (manifest.license !== '(MIT AND Apache-2.0)') errors.push('The combined distribution must disclose MIT and Apache-2.0.');
-  if (JSON.stringify(manifest.pi?.skills) !== JSON.stringify(['./skills', './vendor/agent-skills/skills'])
-      || JSON.stringify(manifest.pi?.prompts) !== JSON.stringify(['./prompts'])) {
-    errors.push('Pi resource paths must retain the complete skill and reference layout.');
+  if (manifest.pi) errors.push('Legacy package fields must be removed.');
+  if (plugin.name !== 'omp' || plugin.version !== manifest.version) {
+    errors.push('omp plugin identity must use name omp and match package.json version.');
   }
-  for (const relative of ['LICENSES/MIT-pi-agent-skills.txt', 'LICENSES/Apache-2.0-code-simplifier.txt',
-    'NOTICE', 'THIRD_PARTY_NOTICES.md', 'MODIFICATIONS.md', 'MAINTENANCE.md', 'CONTRIBUTING.md', 'CHANGELOG.md']) {
-    if (!read(relative).trim()) errors.push(`Required notice or maintenance document is empty: ${relative}`);
+  if (JSON.stringify(plugin.skills) !== JSON.stringify(['./skills', './vendor/agent-skills/skills'])
+      || JSON.stringify(plugin.commands) !== JSON.stringify(['./commands'])) {
+    errors.push('Plugin skill and command paths must retain the complete layout.');
+  }
+  if (claudePlugin.name !== 'omp' || claudePlugin.version !== manifest.version) {
+    errors.push('Compatibility plugin identity must match the omp plugin.');
+  }
+  if (JSON.stringify(claudePlugin.skills) !== JSON.stringify(['./skills', './vendor/agent-skills/skills'])
+      || JSON.stringify(claudePlugin.commands) !== JSON.stringify(['./commands'])) {
+    errors.push('Compatibility manifest skill and command paths must retain the complete layout.');
+  }
+  const catalogEntry = Array.isArray(marketplace.plugins)
+    ? marketplace.plugins.find((entry) => entry.name === 'omp')
+    : undefined;
+  if (marketplace.name !== 'omp-agent-skills-marketplace') errors.push('Marketplace name must be omp-agent-skills-marketplace.');
+  if (!catalogEntry || catalogEntry.version !== manifest.version || catalogEntry.source !== './') {
+    errors.push('Marketplace catalog must expose this package at the repository root.');
+  }
+  if (fs.existsSync(path.join(root, 'prompts'))) errors.push('Legacy prompts directory must be removed.');
+  for (const relative of ['LICENSES/MIT-omp-agent-skills.txt', 'LICENSES/Apache-2.0-code-simplifier.txt',
+    'NOTICE', 'THIRD_PARTY_NOTICES.md', 'MODIFICATIONS.md', 'MAINTENANCE.md', 'CONTRIBUTING.md', 'CHANGELOG.md',
+    'docs/omp-usage.md']) {
+    if (!read(relative).trim()) errors.push(`Required notice, usage or maintenance document is empty: ${relative}`);
+  }
+  for (const relative of ['skills/', 'commands/', '.omp-plugin/', '.claude-plugin/', 'vendor/']) {
+    if (!manifest.files?.includes(relative)) errors.push(`Package files must include ${relative}`);
   }
   const require = createRequire(import.meta.url);
   const lint = require(localPath(root, `${vendorRoot}/scripts/lib/skill-lint.js`));
   const names = (relative) => fs.readdirSync(localPath(root, relative, 'directory'), { withFileTypes: true })
     .filter((entry) => entry.isDirectory()).map((entry) => entry.name);
   const ownSkills = names('skills');
+  if (!ownSkills.includes('omp-agent-workflow')) errors.push('The omp-agent-workflow skill is required.');
   const knownSkills = new Set([...ownSkills, ...names(`${vendorRoot}/skills`)]);
   for (const name of ownSkills) {
     const result = lint.lintSkill(name, path.join(root, 'skills'), knownSkills);
     errors.push(...result.errors.map((error) => `skills/${name}: ${error}`));
   }
-  const prompts = fs.readdirSync(localPath(root, 'prompts', 'directory')).filter((name) => name.endsWith('.md'));
-  if (prompts.length !== 9) errors.push('Expected nine independently authored Pi lifecycle prompts.');
-  for (const name of prompts) {
-    const content = read(`prompts/${name}`);
+  const commands = fs.readdirSync(localPath(root, 'commands', 'directory')).filter((name) => name.endsWith('.md'));
+  if (commands.length !== 9) errors.push('Expected nine independently authored omp lifecycle commands.');
+  for (const name of commands) {
+    const content = read(`commands/${name}`);
     const frontmatter = lint.parseFrontmatter(content);
-    if (!/^pi-[a-z-]+\.md$/.test(name) || !frontmatter?.description) errors.push(`Invalid Pi prompt identity: ${name}`);
+    if (!/^[a-z-]+\.md$/.test(name) || !frontmatter?.description) errors.push(`Invalid omp command identity: ${name}`);
     errors.push(...lint.frontmatterYamlErrors(content).map((error) => `${name}: ${error}`));
-    if (!content.includes('$ARGUMENTS') || !content.includes('Read the `pi-agent-workflow` skill')) {
-      errors.push(`Prompt must load the Pi integration and forward user arguments: ${name}`);
+    if (!content.includes('$ARGUMENTS') || !content.includes('Read the `omp-agent-workflow` skill')) {
+      errors.push(`Command must load the omp integration and forward user arguments: ${name}`);
     }
     const references = [...content.matchAll(/read the `([a-z0-9-]+)` skill/gi)].map((match) => match[1]);
-    if (references.length < 2) errors.push(`Prompt must also load its actual workflow: ${name}`);
+    if (references.length < 2) errors.push(`Command must also load its actual workflow: ${name}`);
     for (const reference of references) {
-      if (!knownSkills.has(reference)) errors.push(`Unknown prompt workflow: ${name} -> ${reference}`);
+      if (!knownSkills.has(reference)) errors.push(`Unknown command workflow: ${name} -> ${reference}`);
     }
   }
   return errors;
@@ -162,7 +190,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
       for (const error of errors) console.error(`ERROR: ${error}`);
       process.exitCode = 1;
     } else {
-      console.log('Independent project checks passed: provenance, notices, Pi integration and prompt routing.');
+      console.log('Independent project checks passed: provenance, notices, omp plugin manifests and command routing.');
     }
   } catch (error) {
     console.error(`ERROR: ${error.message}`);

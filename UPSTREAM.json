@@ -26,7 +26,7 @@
       "Only LICENSE is a license/notice-named file in the upstream tracked tree.",
       "code-simplification explicitly credits an adaptation of the Apache-2.0 Anthropic Code Simplifier plugin; carry that license conservatively for incorporated third-party expression.",
       "No other separate license notices were found in the imported subset. External links and suggested dependencies are not redistributed.",
-      "The complete 17-file docs directory is preserved as unchanged upstream reference material; its host setup instructions do not register or promise Pi features."
+      "The complete 17-file docs directory is preserved as unchanged upstream reference material; its host setup instructions do not register or promise omp features."
     ]
   },
   "imports": [

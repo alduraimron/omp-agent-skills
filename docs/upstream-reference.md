@@ -1,16 +1,16 @@
 # Upstream documentation reference
 
-This index is a new pi-agent-skills contribution. The linked documents are original agent-skills work, preserved byte-for-byte under `vendor/agent-skills/docs/` with the upstream MIT license and attribution intact.
+This index is an omp-agent-skills contribution. The linked documents are original agent-skills work, preserved byte-for-byte under `vendor/agent-skills/docs/` with the upstream MIT license and attribution intact.
 
-All 17 files from the upstream `docs/` directory are included at revision [`aeac41d4d005999432bb7312f7ff06383a91d59d`](https://github.com/addyosmani/agent-skills/tree/aeac41d4d005999432bb7312f7ff06383a91d59d/docs). The original three-document subset has been expanded without changing the upstream revision or rewriting existing imports. Source paths, Git blob IDs and SHA-256 hashes are recorded in [UPSTREAM.json](../UPSTREAM.json).
+All 17 files from the upstream `docs/` directory are included at revision [`aeac41d4d005999432bb7312f7ff06383a91d59d`](https://github.com/addyosmani/agent-skills/tree/aeac41d4d005999432bb7312f7ff06383a91d59d/docs). Source paths, Git blob IDs and SHA-256 hashes are recorded in [UPSTREAM.json](../UPSTREAM.json).
 
-## Pi guidance versus upstream reference
+## omp guidance versus upstream reference
 
-For installing and using this independent Pi package, follow [Pi usage](pi-usage.md) and the [project README](../README.md).
+For installing and using this independent omp package, follow [omp usage](omp-usage.md) and the [project README](../README.md).
 
-The archived documents describe the upstream project, its contributors, host integrations and claims at the pinned revision. They are reference material, not instructions for configuring this repository, promises of Pi features, or a statement that the independent project supports every upstream host. Mentions of `/build auto`, parallel persona orchestration, hooks, upstream evaluation tooling and other-host installers do not add those capabilities to pi-agent-skills.
+The archived documents describe the upstream project, its contributors, host integrations and claims at the pinned revision. They are reference material, not instructions for configuring this repository, promises of omp features, or a statement that this independent project supports every upstream host. Mentions of `/build auto`, parallel persona orchestration, hooks, upstream evaluation tooling and other-host installers do not add those capabilities to omp-agent-skills.
 
-Upstream repository names, authorship, installation URLs and host-specific command examples are intentionally unchanged. They identify the source project, not this package's distribution or endorsement. Installing pi-agent-skills does not execute any setup commands in these documents or register them as skills or prompts.
+Upstream repository names, authorship, installation URLs and host-specific command examples are intentionally unchanged. They identify the source project, not this package's distribution or endorsement. Installing omp-agent-skills does not execute any setup commands in these documents or register them as skills or commands.
 
 ## Complete documentation index
 
@@ -36,7 +36,7 @@ Upstream repository names, authorship, installation URLs and host-specific comma
 
 ## Links to files outside the archived subset
 
-The complete `docs/` directory is included, but the entire upstream repository is not. Some original relative links point to intentionally excluded files, such as upstream `README.md`, `CONTRIBUTING.md`, evaluation fixtures, host command wrappers or CI. Those targets are not fabricated or replaced with downstream documents: doing so would confuse authorship and repository-specific instructions.
+The complete `docs/` directory is included, but the entire upstream repository is not. Some original relative links point to intentionally excluded files, such as upstream `README.md`, `CONTRIBUTING.md`, evaluation fixtures, host command wrappers or CI. Those targets are not fabricated or replaced with downstream documents. Doing so would confuse authorship and repository-specific instructions.
 
 If a relative link has no local target, resolve it in the [pinned upstream repository](https://github.com/addyosmani/agent-skills/tree/aeac41d4d005999432bb7312f7ff06383a91d59d), for example the [original README](https://github.com/addyosmani/agent-skills/blob/aeac41d4d005999432bb7312f7ff06383a91d59d/README.md), [original contribution rules](https://github.com/addyosmani/agent-skills/blob/aeac41d4d005999432bb7312f7ff06383a91d59d/CONTRIBUTING.md) or [evaluation documentation](https://github.com/addyosmani/agent-skills/blob/aeac41d4d005999432bb7312f7ff06383a91d59d/evals/README.md). External pages may have changed since this snapshot; retaining an original link is not a claim that its contents were copied, audited or are still current.
 

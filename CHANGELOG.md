@@ -1,24 +1,23 @@
 # Changelog
 
-This is the independent pi-agent-skills release history, not the upstream agent-skills changelog.
+This is the independent omp-agent-skills release history, not the upstream agent-skills changelog.
 
-## Unreleased
+## 0.2.0 - 2026-10-20
 
-- Expanded the README into a complete onboarding and reference guide: workflow stages, all nine commands, all 26 linked skills, personas/checklists, task recipes, session recovery, capability boundaries and troubleshooting.
-- Added regression checks for README skill/command completeness, approval/artifact guidance and relative links. Removed stale first-push prerequisites from the current installation guide.
-
-- Preserved the complete 17-file upstream documentation directory at the existing pinned revision, adding 14 previously excluded documents without rewriting upstream content.
-- Added a separate upstream reference index and clarified that archived host instructions do not promise Pi features.
-- Updated import provenance and added documentation completeness, integrity and distribution regression checks. Skill behavior and Slaver integration are unchanged.
-- Prepared the independent GitHub repository metadata, SSH/HTTPS installation instructions and downstream maintenance/support links for the first approved push.
-- Retained the npm publication guard while validating Git package installation; added regression checks for the new metadata and guidance.
+- Added native omp packaging: `.omp-plugin/plugin.json`, `.claude-plugin/plugin.json`, a one-plugin marketplace catalog, and explicit skill and command path mapping. The plugin identity is `omp`.
+- Replaced the legacy package manifest and lifecycle prompt templates with omp-native lifecycle commands in `commands/`. Installed commands are exposed as `/omp:*`.
+- Replaced the legacy integration skill with `omp-agent-workflow`, including omp capability mapping, plan mode and approval boundaries.
+- Replaced the legacy usage guide with [omp usage](docs/omp-usage.md) and updated the upstream reference index.
+- Rewrote the README for installation, commands, skills, personas, boundaries, recovery and troubleshooting in omp.
+- Updated validation and regression tests for the omp plugin manifest, marketplace catalog, command layout and skill discovery.
+- Preserved all 26 skills, all 66 audited upstream files, the upstream MIT license, the Apache-2.0 simplifier license and the pinned upstream revision.
+- Removed the legacy installation, prompt, package, skill and documentation surfaces. The repository identity and install links now use `omp-agent-skills`.
 
 ## 0.1.0 - 2026-10-14
 
-- Established an independently maintained Pi workflow package from a pinned, audited upstream foundation.
+- Established an independently maintained workflow package from a pinned, audited upstream foundation.
 - Preserved upstream MIT copyright and notices; included the separately reviewed Apache-2.0 simplifier license.
-- Added a Pi integration skill and nine prefixed lifecycle prompt templates.
-- Added provenance/integrity checks, regression tests, packaging checks and independent CI.
+- Added an integration skill, nine lifecycle commands, provenance and integrity checks, regression tests, packaging checks and independent CI.
 - Added explicit origin, non-endorsement, modification and maintenance records.
 
 See [MODIFICATIONS.md](MODIFICATIONS.md) for path-level changes. Git distribution is available from the independently maintained repository. Unreleased entries describe changes not yet released; no release tag or npm publication is implied by this changelog.

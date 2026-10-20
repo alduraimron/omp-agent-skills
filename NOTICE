@@ -1,4 +1,4 @@
-pi-agent-skills - origin and attribution notice
+omp-agent-skills - origin and attribution notice
 
 This is an independently maintained project based on agent-skills:
 https://github.com/addyosmani/agent-skills
@@ -19,11 +19,11 @@ preserved in LICENSES/Apache-2.0-code-simplifier.txt for any incorporated
 third-party expression. The plugin itself is not otherwise vendored. The
 original skill's inspiration/adaptation notice has not been removed.
 
-New Pi integration, prompt templates, validation, tests, CI and independent
-project documentation are pi-agent-skills contributions, licensed under
-LICENSES/MIT-pi-agent-skills.txt. Those contributions are not attributed to
+New omp integration, commands, validation, tests, CI and independent
+project documentation are omp-agent-skills contributions, licensed under
+LICENSES/MIT-omp-agent-skills.txt. Those contributions are not attributed to
 the upstream authors. Significant changes are recorded in MODIFICATIONS.md.
 
 No affiliation, sponsorship or endorsement by the original authors,
-Anthropic or the Pi maintainers is implied. This notice describes origin
+Anthropic or the omp maintainers is implied. This notice describes origin
 and license scope; it does not replace or alter any license terms.

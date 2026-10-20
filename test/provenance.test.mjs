@@ -1,4 +1,4 @@
-// Original pi-agent-skills contribution. See LICENSES/MIT-pi-agent-skills.txt.
+// Original omp-agent-skills contribution. See LICENSES/MIT-omp-agent-skills.txt.
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
@@ -16,7 +16,7 @@ const allImports = [...provenance.imports, ...provenance.thirdParty.flatMap((ite
 const sha256 = (data) => createHash('sha256').update(data).digest('hex');
 
 function fixture(t) {
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pi-agent-skills-test-'));
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'omp-agent-skills-test-'));
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
   for (const item of allImports) {
     const destination = path.join(root, item.path);
@@ -28,7 +28,7 @@ function fixture(t) {
 
 function recordModification(root, manifest, relative, notice = true) {
   const file = path.join(root, relative);
-  fs.appendFileSync(file, notice ? '\nModified by pi-agent-skills: test-only documented change.\n' : '\nUndocumented content.\n');
+  fs.appendFileSync(file, notice ? '\nModified by omp-agent-skills: test-only documented change.\n' : '\nUndocumented content.\n');
   manifest.modifications.push({
     path: relative,
     sha256: sha256(fs.readFileSync(file)),

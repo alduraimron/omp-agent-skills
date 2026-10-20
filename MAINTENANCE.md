@@ -1,10 +1,10 @@
 # Independent maintenance
 
-pi-agent-skills has its own repository, versioning, review, roadmap and release decisions at [alduraimron/pi-agent-skills](https://github.com/alduraimron/pi-agent-skills). The repository owner, [@alduraimron](https://github.com/alduraimron), and accepted downstream contributors maintain it; upstream authors are not represented as members of this maintenance team.
+omp-agent-skills has its own repository, versioning, review, roadmap and release decisions at [alduraimron/omp-agent-skills](https://github.com/alduraimron/omp-agent-skills). The repository owner, [@alduraimron](https://github.com/alduraimron), and accepted downstream contributors maintain it; upstream authors are not represented as members of this maintenance team.
 
-Report pi-agent-skills problems through [this project's own issue tracker](https://github.com/alduraimron/pi-agent-skills/issues). Do not send downstream bug reports to the upstream project as if this were an official release.
+Report omp-agent-skills problems through [this project's own issue tracker](https://github.com/alduraimron/omp-agent-skills/issues). Do not send downstream bug reports to the upstream project as if this were an official release.
 
-The owner-selected Git remote is `git@github.com:alduraimron/pi-agent-skills.git`. Git distribution requires committed content to have been pushed with explicit approval. npm publication remains disabled with `private: true`; this does not block installation as a Git package. Preparing a commit or configuring `origin` does not authorize pushing or creating a release tag.
+The owner-selected Git remote is `git@github.com:alduraimron/omp-agent-skills.git`. Git distribution requires committed content to have been pushed with explicit approval. npm publication remains disabled with `private: true`; this does not block Git or plugin installation. Preparing a commit or configuring `origin` does not authorize pushing or creating a release tag.
 
 ## Relationship to upstream
 
@@ -20,18 +20,19 @@ The owner-selected Git remote is `git@github.com:alduraimron/pi-agent-skills.git
 2. Enumerate Git-tracked paths, including dotfiles, symlinks and submodules. Review license/NOTICE/COPYING files, in-file copyright/SPDX notices and source/adaptation credits before copying.
 3. Resolve third-party terms independently. For Apache-licensed material, keep the full license, existing applicable notices and any supplied NOTICE. Add a prominent file-level change notice to modified derivatives.
 4. Select the portable source explicitly. Do not bring in upstream Git metadata, host installers, hooks, dependencies or marketing implicitly.
-5. Review content differences and Pi capability assumptions. A source review cannot be replaced by the presence of an MIT root license or a passing checksum.
+5. Review content differences and omp capability assumptions. A source review cannot be replaced by the presence of an MIT root license or a passing checksum.
 6. Update the source revision, path mapping, original SHA-256 hashes, Git blob IDs and exclusion inventory in `UPSTREAM.json` only for the deliberate new baseline. Preserve prior import history in Git and record the baseline transition in `MODIFICATIONS.md`.
-7. For downstream changes relative to that baseline, keep the original import hash. Add a `modifications` record with `path`, `sha256` (current content), `date` and `reason`, and include a visible `Modified by pi-agent-skills` notice in the changed file. The validator rejects undocumented drift.
+7. For downstream changes relative to that baseline, keep the original import hash. Add a `modifications` record with `path`, `sha256` (current content), `date` and `reason`, and include a visible `Modified by omp-agent-skills` notice in the changed file. The validator rejects undocumented drift.
 8. Run `npm run check`, `npm test` and inspect `npm pack --dry-run --ignore-scripts`. Confirm that legal texts and shared references remain in the distribution.
-9. Have an independent downstream maintainer approve the change. Record the version impact and significant modifications before release.
+9. Smoke-test plugin discovery with omp when manifests, skills or commands change.
+10. Have an independent downstream maintainer approve the change. Record the version impact and significant modifications before release.
 
 ## Release process
 
 1. Review changes and all license scopes; ensure that no authorship or endorsement claims have drifted.
 2. Update this project's version, changelog and modification record independently of upstream's version.
 3. Run all checks and inspect the actual packed archive, not just the source checkout.
-4. Git distribution uses this project's own GitHub repository. Keep `private: true` for Git-only distribution. Remove that npm publication guard only if the repository owner explicitly approves an npm destination and release.
-5. Publish/tag from this project's own repository and credentials only with explicit release approval. Preserve `LICENSE`, `LICENSES/`, `NOTICE`, `THIRD_PARTY_NOTICES.md` and `UPSTREAM.json` in every distribution.
+4. Git distribution and marketplace installation use this project's own GitHub repository. Keep `private: true` for Git-only distribution. Remove that npm publication guard only if the repository owner explicitly approves an npm destination and release.
+5. Publish, tag or update the marketplace catalog from this project's own repository and credentials only with explicit release approval. Preserve `LICENSE`, `LICENSES/`, `NOTICE`, `THIRD_PARTY_NOTICES.md` and `UPSTREAM.json` in every distribution.
 
-No maintenance schedule, support guarantee or upstream author's participation is implied by creating this initial project.
+No maintenance schedule, support guarantee or upstream author's participation is implied by creating this project.
